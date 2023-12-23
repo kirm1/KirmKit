@@ -1,4 +1,4 @@
-#!/bin/bash
+o#!/bin/bash
 
 # ANSI color codes
 cyan='\033[1;36m'
@@ -20,7 +20,7 @@ display_banner() {
 EOF
     echo -e "${reset}"
 }
-                                                                                ${yellow}http://github.com/kirm1/KirmKit.git${reset}
+                                                                                echo -e "${yellow}http://github.com/kirm1/KirmKit.git${reset}"
 # Function to check if a command is available
 check_command() {
     local command_name="$1"
