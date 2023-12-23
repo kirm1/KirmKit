@@ -58,7 +58,7 @@ run_th3inspector() {
 run_nitro_generator() {
     echo -e "${green}Running Nitro Generator...${reset}"
     # Replace the following line with the actual Nitro Generator command
-    ./Nitro.sh
+    /Tools/./Nitro.sh
 }
 
 # Main script
