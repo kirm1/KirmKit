@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # ANSI color codes
+cyan='\033[1;36m'
+yellow='\033[1;33m'
 green='\033[0;32m'
 red='\033[0;31m'
 reset='\033[0m'
@@ -8,14 +10,13 @@ reset='\033[0m'
 # Function to display the KIRM banner
 display_banner() {
     clear
-    echo -e "${green}"
+    echo -e "${cyan}"
     cat << "EOF"
                                  K   K  III  RRRR   M   M  K   K  III  TTTTT
                                  K  K    I   R   R  MM MM  K  K    I     T
                                  KKK     I   RRRR   M M M  KKK     I     T
                                  K  K    I   R  R   M   M  K  K    I     T
-                                 K   K  III  R   RR M   M  K   K  III    T    http://github.com/kirm1/KirmKit.git
-================================================================================================================================
+                                 K   K  III  R   RR M   M  K   K  III    T    ${yellow}http://github.com/kirm1/KirmKit.git${reset}
 EOF
     echo -e "${reset}"
 }
