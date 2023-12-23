@@ -8,6 +8,12 @@ Download 📡
 ```bash
 git clone https://github.com/kirm1/KirmKit.git
 ```
+Usage ⚡
+----------
+In PowerShell
+```bash
+python Install.py
+```
 
 Changelog 📌
 -------
