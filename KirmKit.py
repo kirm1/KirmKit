@@ -73,7 +73,8 @@ choice = input("Enter your choice (1-3): ")
 # Case statement to handle user choice
 if choice == '1':
     # Run nmap command
-    subprocess.run(['nmap', '--min-hostgroup', '96', '-sS', '-n', '-sU', '-T4', '-A', '-v', '-PE', '-PP', '-PS80,443', '-PA3389', '-PU40125', '-PY', '-g', '53'])
+    target_ip = input("Enter The target IP address: ")
+    subprocess.run(['nmap', target_ip, '--min-hostgroup', '96', '-sS', '-n', '-sU', '-T4', '-A', '-v', '-PE', '-PP', '-PS80,443', '-PA3389', '-PU40125', '-PY', '-g', '53'])
 elif choice == '2':
     # Run DDoS-Ripper command
     target_ip = input("Enter The target IP address: ")
