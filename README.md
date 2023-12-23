@@ -1,6 +1,6 @@
 # KirmKit
 
-An All in One tool i made (currently in development)
+A Tool kit I made (credit to DDoS-Ripper And Th3Inspector repos that i used in it)
 
 Download 📡
 ----------
