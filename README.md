@@ -7,6 +7,7 @@ Download 📡
 
 ```bash
 git clone https://github.com/kirm1/KirmKit.git
+cd KirmKit
 chmod u+x *.sh
 ```
 
