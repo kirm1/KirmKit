@@ -19,8 +19,10 @@ display_banner() {
                                  K   K  III  R   RR M   M  K   K  III    T 
 EOF
     echo -e "${reset}"
-}
+
                                                                                 echo -e "${yellow}http://github.com/kirm1/KirmKit.git${reset}"
+}
+
 # Function to check if a command is available
 check_command() {
     local command_name="$1"
