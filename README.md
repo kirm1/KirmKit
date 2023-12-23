@@ -7,13 +7,13 @@ Download 📡
 
 ```bash
 git clone https://github.com/kirm1/KirmKit.git
-cd KirmKit
-chmod u+x *.sh
 ```
 
 Changelog 📌
 -------
-No changes
+Added KirmKit.py, Install.py, and Folder named Tools (It has KirmKit.py tools)
+
+If you have any suggestions on what to add submit one in Issues
 
 
 Contributing 🤝
