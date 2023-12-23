@@ -2,6 +2,7 @@
 
 # ANSI color codes
 green='\033[0;32m'
+yellow='\033[0;33m'
 red='\033[0;31m'
 reset='\033[0m'
 
@@ -47,29 +48,14 @@ run_ddos_ripper() {
     DDoS-Ripper -s "$ip_address" -p "$port" -t 443
 }
 
-# Function to run Th3Inspector
-run_th3inspector() {
-    echo -e "${green}Running Th3Inspector...${reset}"
-    # Replace the following line with the actual Th3Inspector command
-    Th3Inspector
-}
-
-# Function to run Nitro Generator
-run_nitro_generator() {
-    echo -e "${green}Running Nitro Generator...${reset}"
-    # Replace the following line with the actual Nitro Generator command
-    /Tools/./Nitro.sh
-}
-
 # Main script
 display_banner
 
 # Display the menu
 echo -e "\nChoose a tool to run:"
-echo -e "[${green}1${reset}] nmap"
-echo -e "[${green}2${reset}] DDoS-Ripper"
-echo -e "[${green}3${reset}] Th3Inspector"
-echo -e "[${green}4${reset}] Nitro Generator"
+echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} nmap ${reset}"
+echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} DDoS-Ripper ${reset}"
+echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} NitroGenerator ${reset}"
 
 # Read user input
 read -p "Enter your choice (1-4): " choice
@@ -84,12 +70,6 @@ case $choice in
     2)
         check_command "DDoS-Ripper"
         run_ddos_ripper
-        ;;
-    3)
-        run_th3inspector
-        ;;
-    4)
-        run_nitro_generator
         ;;
     *)
         echo -e "[${red}Error${reset}] Invalid choice. Please enter a number between 1 and 4."
