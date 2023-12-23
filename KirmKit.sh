@@ -2,7 +2,6 @@
 
 # ANSI color codes
 green='\033[0;32m'
-yellow='\033[0;33m'
 red='\033[0;31m'
 reset='\033[0m'
 
@@ -45,7 +44,16 @@ run_ddos_ripper() {
     read -p "Enter Port: " port
     echo -e "\nRunning DDoS-Ripper with IP address: $ip_address"
     # Replace the following line with the actual DDoS-Ripper command
-    DDoS-Ripper -s "$ip_address" -p "$port" -t 443
+    cd DDoS-Ripper && chmod +x DRipper.py
+    ./DDoS-Ripper -s "$ip_address" -p "$port" -t 443
+}
+
+# Function to run NitroGenerator
+run_nitrogen() {
+    cd Tools
+    chmod u+x *.sh
+    echo -e "\nRunning NitroGenerator" 
+  ./Nitro.sh
 }
 
 # Main script
@@ -53,12 +61,12 @@ display_banner
 
 # Display the menu
 echo -e "\nChoose a tool to run:"
-echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} nmap ${reset}"
-echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} DDoS-Ripper ${reset}"
-echo -e "${red}[${green}4${reset}${red}]${reset} ${yellow} NitroGenerator ${reset}"
+echo -e "${red}[${green}1${reset}${red}]${reset} ${yellow} nmap"
+echo -e "${red}[${green}2${reset}${red}]${reset} ${yellow} DDoS-Ripper"
+echo -e "${red}[${green}3${reset}${red}]${reset} ${yellow} NitroGenerator"
 
 # Read user input
-read -p "Enter your choice (1-4): " choice
+read -p "Enter your choice (1-3): " choice
 
 # Check for required commands
 check_command "nmap"
@@ -68,11 +76,14 @@ case $choice in
         run_nmap
         ;;
     2)
-        check_command "DDoS-Ripper"
         run_ddos_ripper
         ;;
+    3)
+        run_nitrogen
+        ;;
+        
     *)
-        echo -e "[${red}Error${reset}] Invalid choice. Please enter a number between 1 and 4."
+        echo -e "[${red}Error${reset}] Invalid choice. Please enter a number between 1 and 3."
         ;;
 esac
 
