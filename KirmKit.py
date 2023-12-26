@@ -50,8 +50,36 @@ def run_nitrogen():
         print(f"\n{red}[Error]{reset} Error running NitroGenerator: {e}")
     os.chdir('..')  # Change back to the original directory
 
+# Function to center text to the left with red box background for disclaimer
+def center_disclaimer(text, width=80):
+    red_box = f"{red}{'#' * (width - 2)}{reset}"
+    lines = text.split('\n')
+    centered_lines = [f'{red_box}']
+    centered_lines.extend(lines)
+    centered_lines.append(red_box)
+    return '\n'.join(centered_lines)
+
 # Main script
 display_banner()
+
+# Display the disclaimer with red box background
+disclaimer = (
+    'Disclaimer\n\n'
+    'All scripts provided are meant for educational and informational purposes only. '
+    'The author does not condone or encourage any unauthorized or malicious activities. '
+    'Users are expected to use these scripts responsibly and in compliance with all applicable laws and regulations.\n'
+    'The author is not responsible for any misuse, damage, or consequences resulting from the use of these scripts. '
+    'The scripts are provided as-is, without any warranty or guarantee of their accuracy, reliability, or suitability for any purpose.\n'
+    'Use these scripts at your own risk. It is recommended to review and understand the code before running any script, '
+    'and to ensure that their use aligns with ethical and legal standards.\n'
+    'The author reserves the right to modify, update, or discontinue these scripts at any time. '
+    'Any reliance you place on these scripts is strictly at your own discretion.\n'
+    'By using these scripts, you acknowledge and agree to the terms outlined in this disclaimer.'
+)
+
+centered_disclaimer = center_disclaimer(disclaimer)
+
+print(f'{centered_disclaimer}\n')
 
 # Check for required commands
 if not check_command('nmap'):
