@@ -6,7 +6,7 @@ red = '\033[0;31m'
 green = '\033[1;32m'  # Bright Green
 cyan = '\033[1;36m'  # Bright Cyan
 yellow = '\033[1;33m'  # Bright Yellow
-reset = '\033[0m'  # Reset to default color
+reset = '\033[0m'  # Reset to the default color
 
 # Function to display the KIRMKIT banner
 def display_banner():
@@ -87,3 +87,6 @@ elif choice == '3':
     run_nitrogen()
 else:
     print(f"\n{red}[Error]{reset} Invalid choice. Please enter a number between 1 and 3.")
+
+# Wait for user input before exiting
+input('Press enter to exit...')
