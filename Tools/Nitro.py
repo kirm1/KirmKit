@@ -1,5 +1,3 @@
-#!/usr/bin/env python -u
-
 import asyncio
 import os
 import signal
@@ -83,8 +81,6 @@ async def run_nitro_code_checks():
             # Check the validity of the Nitro code
             await check_nitro_code(session, nitro_code)
 
-    # The script will keep running until manually interrupted
-
 # Main script
 display_banner()
 
@@ -94,4 +90,12 @@ if not check_command('curl'):
     exit(1)
 
 # Run Nitro code generation and checking
-asyncio.run(run_nitro_code_checks())
+try:
+    asyncio.run(run_nitro_code_checks())
+except KeyboardInterrupt:
+    print(f'\n{red}Script manually interrupted.{reset} Cleaning up...')
+    print(f'Valid Nitro codes saved to: {VALID_CODES_FILE}')
+    exit(1)
+
+# Wait for user input before exiting
+input('Press enter to exit...')
