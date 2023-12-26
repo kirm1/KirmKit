@@ -20,7 +20,7 @@ def install_nmap():
     urllib.request.urlretrieve(nmap_installer_url, installer_path)
 
     # Run the installer with elevated privileges
-    result = subprocess.run(['powershell', '-Command', f'Start-Process -Wait -FilePath "{installer_path}" -Verb RunAs'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['nmap_setup.exe'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
     if result.returncode == 0:
         print(f"{Fore.RED}[{Fore.GREEN}KirmKit{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} Installation Successful!")
