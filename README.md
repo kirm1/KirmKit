@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```bash
 python3 Install.py
 ```
-# Linux
+Linux
 In Terminal
 ```bash
 cd KirmKit
