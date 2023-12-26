@@ -10,8 +10,10 @@ git clone https://github.com/kirm1/KirmKit.git
 ```
 # Usage ⚡
 ----------
+
 Windows
 ----------
+
 In PowerShell
 ```bash
 cd KirmKit
@@ -24,6 +26,8 @@ pip install -r requirements.txt
 python3 Install.py
 ```
 Linux
+--------
+
 In Terminal
 ```bash
 cd KirmKit
@@ -34,6 +38,7 @@ python3 Install.py
 
 # Changelog 📌
 -------
+
 Added KirmKit.py, Install.py, and Folder named Tools (It has KirmKit.py tools)
 
 If you have any suggestions on what to add submit one in Issues
