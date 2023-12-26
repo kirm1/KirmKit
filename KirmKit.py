@@ -1,5 +1,6 @@
 import subprocess
 import os
+import shutil  # Import the shutil module
 
 # ANSI color codes
 red = '\033[0;31m'
@@ -24,11 +25,7 @@ def display_banner():
 
 # Function to check if a command is available
 def check_command(command_name):
-    try:
-        result = subprocess.run([command_name, '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-        return result.returncode == 0
-    except FileNotFoundError:
-        return False
+    return shutil.which(command_name) is not None  # Use shutil.which to check command availability
 
 # Function to run NitroGenerator
 def run_nitrogen():
