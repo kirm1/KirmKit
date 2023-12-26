@@ -10,9 +10,26 @@ git clone https://github.com/kirm1/KirmKit.git
 ```
 Usage ⚡
 ----------
+# Windows
+----------
 In PowerShell
 ```bash
-python Install.py
+cd KirmKit
+```
+
+```bash
+pip install -r requirements.txt
+```
+```bash
+python3 Install.py
+```
+# Linux
+In Terminal
+```bash
+cd KirmKit
+apt install python3
+pip install -r requirements.txt
+python3 Install.py
 ```
 
 Changelog 📌
