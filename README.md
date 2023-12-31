@@ -6,7 +6,7 @@ A Tool kit I made (credit to DDoS-Ripper that i used in it)
 ----------
 
 ```bash
-git clone https://github.com/kirm1/KirmKit.git
+git clone https://github.com/jxxxxxxx1233/KirmKit.git
 ```
 # Usage ⚡
 ----------
@@ -16,7 +16,7 @@ Windows
 
 In PowerShell
 ```bash
-cd KirmKit
+cd Kit
 ```
 
 ```bash
@@ -30,7 +30,7 @@ Linux
 
 In Terminal
 ```bash
-cd KirmKit
+cd Kit
 apt install python3
 pip install -r requirements.txt
 python3 Install.py
@@ -39,7 +39,7 @@ python3 Install.py
 # Changelog 📌
 -------
 
-Added KirmKit.py, Install.py, and Folder named Tools (It has KirmKit.py tools)
+Added Kit.py, Install.py, and Folder named Tools (It has Kit.py tools)
 
 If you have any suggestions on what to add submit one in Issues
 
