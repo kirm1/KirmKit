@@ -6,7 +6,7 @@ A Tool kit I made (credit to DDoS-Ripper that i used in it)
 ----------
 
 ```bash
-git clone https://github.com/jxxxxxxx1233/KirmKit.git
+git clone https://github.com/kirm1/KirmKit.git
 ```
 # Usage ⚡
 ----------
