@@ -16,7 +16,7 @@ Windows
 
 In PowerShell
 ```bash
-cd Kit
+cd KirmKit
 ```
 
 ```bash
@@ -30,7 +30,7 @@ Linux
 
 In Terminal
 ```bash
-cd Kit
+cd Kirmkit
 apt install python3
 pip install -r requirements.txt
 python3 Install.py
