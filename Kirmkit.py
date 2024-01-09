@@ -19,7 +19,7 @@ def display_banner():
         'KKK     I   RRRR   M M M  KKK     I     T\n'
         'K  K    I   R  R   M   M  K  K    I     T\n'
         f'K   K  III  R   RR M   M  K   K  III    T    {yellow}http://github.com/kirm1/KirmKit.git{reset}\n'
-        f'{red}copyright (c) 2023 KirmKit{reset}\n'
+        f'{red}copyright (c) 2024 KirmKit{reset}\n'
     )
     print(banner_text)
 
