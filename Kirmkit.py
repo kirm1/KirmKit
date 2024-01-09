@@ -86,6 +86,12 @@ if not check_command('nmap'):
     print(f"\n{red}[Error]{reset} nmap is not available. Please install it.")
     exit(1)
 
+# Check for the DDoS-Ripper directory in the current directory
+ddos_ripper_path = 'DDoS-Ripper'
+if not os.path.exists(ddos_ripper_path):
+    print(f"{red}[Error]{reset} DDoS-Ripper directory not found in the current directory.")
+    exit(1)
+
 # Display the menu
 print("\nChoose a tool to run:")
 print(f"{green}[{red}1{reset}{green}]{green} nmap{reset}")
@@ -105,7 +111,7 @@ elif choice == '2':
     target_ip = input("Enter The target IP address: ")
     target_port = input("Enter The target port: ")
     os.chdir('DDoS-Ripper')
-    subprocess.run(['python', 'Dripper.py', '-s', target_ip, '-p', target_port, '-t', '443'])
+    subprocess.run(['python3', 'DRipper.py', '-s', target_ip, '-p', target_port, '-t', '443'])
     os.chdir('..')  # Change back to the original directory
 elif choice == '3':
     # Run NitroGenerator command
