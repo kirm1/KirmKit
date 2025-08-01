@@ -1,6 +1,7 @@
 import subprocess
 import urllib.request
 import os
+import time
 from colorama import init, Fore, Style
 
 # Initialize colorama
@@ -24,34 +25,33 @@ def check_nmap_installation():
 
 # Function to download and run the Nmap installer with elevated privileges
 def install_nmap():
-    print(f"\nDownloading and installing {Fore.RED}[{Fore.GREEN}nmap{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL}...")
+    """Download and install nmap automatically with a simple progress bar."""
+    print(f"\nInstalling {Fore.RED}[{Fore.GREEN}nmap{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL}...")
 
-    # Download the Nmap installer
-    nmap_installer_url = "https://nmap.org/dist/nmap-7.94-setup.exe" if os.name == 'nt' else None
-
-    if nmap_installer_url:
+    if os.name == 'nt':
+        # Download the Nmap installer for Windows
         installer_path = "nmap_setup.exe"
-        urllib.request.urlretrieve(nmap_installer_url, installer_path)
-
-        # Run the installer with elevated privileges
-        result = subprocess.run(['nmap_setup.exe'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-
-        if result.returncode == 0:
-            print(f"{Fore.RED}[{Fore.GREEN}KirmKit{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} Installation Successful!")
-        else:
-            print(f"[{Fore.RED}ERROR{Style.RESET_ALL}] KirmKit installation failed.")
-            print(result.stderr.decode())
-            exit(1)
+        urllib.request.urlretrieve("https://nmap.org/dist/nmap-7.94-setup.exe", installer_path)
+        cmd = [installer_path, "/S"]  # silent installation
     else:
         # Linux platform, use package manager for installation
-        result = subprocess.run(['sudo', 'apt-get', 'install', 'nmap'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cmd = ['sudo', 'apt-get', '-y', 'install', 'nmap']
 
-        if result.returncode == 0:
-            print(f"{Fore.RED}[{Fore.GREEN}KirmKit{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} Installation Successful!")
-        else:
-            print(f"[{Fore.RED}ERROR{Style.RESET_ALL}] KirmKit installation failed.")
-            print(result.stderr.decode())
-            exit(1)
+    # Start the installation process
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    progress = 0
+    while process.poll() is None:
+        progress = (progress + 1) % 100
+        print(f"\rProgress: [{'=' * progress}{' ' * (100 - progress)}]", end='', flush=True)
+        time.sleep(0.1)
+    print("\r" + " " * 120, end='\r')
+
+    if process.returncode == 0:
+        print(f"{Fore.RED}[{Fore.GREEN}nmap{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} installation complete!")
+    else:
+        print(f"[{Fore.RED}ERROR{Style.RESET_ALL}] nmap installation failed.")
+        print(process.stderr.read().decode())
+        exit(1)
 
 # Function to clone GitHub repositories
 def clone_github_repositories():
