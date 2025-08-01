@@ -19,7 +19,7 @@ def check_nmap_installation():
         elif os.name == 'posix':  # Linux
             subprocess.run(['nmap', '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
         return True
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, FileNotFoundError):
         return False
 
 # Function to download and run the Nmap installer with elevated privileges
