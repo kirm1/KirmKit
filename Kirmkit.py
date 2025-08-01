@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 import requests
@@ -85,11 +86,11 @@ def run_nmap() -> None:
 def run_ddos() -> None:
     ip = input("Enter the target IP address: ")
     port = input("Enter the target port: ")
-    run_in_dir(['python3', 'DRipper.py', '-s', ip, '-p', port, '-t', '443'], DDOS_DIR)
+    run_in_dir([sys.executable, 'DRipper.py', '-s', ip, '-p', port, '-t', '443'], DDOS_DIR)
 
 
 def run_nitrogen() -> None:
-    run_in_dir(['python3', 'Nitro.py'], TOOLS_DIR)
+    run_in_dir([sys.executable, 'Nitro.py'], TOOLS_DIR)
 
 # Function to center text to the left with red box background for disclaimer
 def center_disclaimer(text: str, width: int = 80) -> str:

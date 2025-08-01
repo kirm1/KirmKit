@@ -1,6 +1,7 @@
 import subprocess
 import urllib.request
 import os
+import shutil
 from colorama import init, Fore, Style
 
 # Initialize colorama
@@ -68,8 +69,8 @@ def clone_github_repositories():
             else:
                 print(f"Replacing existing '{repo_name}'...")
 
-                # Remove existing directory
-                subprocess.run(['rm', '-rf', repo_name])
+                # Remove existing directory in a cross-platform manner
+                shutil.rmtree(repo_name, ignore_errors=True)
 
         print(f"\nInstalling dependencies...")
 
