@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ```bash
 python Install.py
 ```
+Install.py installs Nmap via [Chocolatey](https://chocolatey.org/) with a progress bar. Chocolatey is automatically installed if needed.
 Linux
 --------
 
