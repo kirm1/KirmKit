@@ -7,6 +7,27 @@ from colorama import init, Fore, Style
 # Initialize colorama
 init(autoreset=True)
 
+# Download a file with a simple progress bar
+def download_with_progress(url: str, dest: str) -> None:
+    response = urllib.request.urlopen(url)
+    total = int(response.getheader('content-length', 0))
+    downloaded = 0
+    chunk = 8192
+    with open(dest, 'wb') as out_file:
+        while True:
+            data = response.read(chunk)
+            if not data:
+                break
+            out_file.write(data)
+            downloaded += len(data)
+            if total:
+                percent = downloaded * 100 // total
+                bar_len = 50
+                filled = int(bar_len * percent / 100)
+                bar = '=' * filled + ' ' * (bar_len - filled)
+                print(f"\rDownloading: [{bar}] {percent}%", end='', flush=True)
+    print()
+
 # Function to display the KIRMKIT banner
 def display_banner():
     print(f"{Fore.GREEN}K   K  III  RRRR   M   M  K   K  III  TTTTT\nK  K    I   R   R  MM MM  K  K    I     T\nKKK     I   RRRR   M M M  KKK     I     T\nK  K    I   R  R   M   M  K  K    I     T\nK   K  III  R   RR M   M  K   K  III    T    http://github.com/kirm1/KirmKit.git\n================================================================================================================================{Style.RESET_ALL}")
@@ -32,26 +53,25 @@ def install_nmap():
 
     if nmap_installer_url:
         installer_path = "nmap_setup.exe"
-        urllib.request.urlretrieve(nmap_installer_url, installer_path)
+        download_with_progress(nmap_installer_url, installer_path)
 
-        # Run the installer with elevated privileges
-        result = subprocess.run(['nmap_setup.exe'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        # Run the installer silently
+        result = subprocess.run([installer_path, '/S'])
 
         if result.returncode == 0:
             print(f"{Fore.RED}[{Fore.GREEN}KirmKit{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} Installation Successful!")
         else:
             print(f"[{Fore.RED}ERROR{Style.RESET_ALL}] KirmKit installation failed.")
-            print(result.stderr.decode())
+            print(result.stderr.decode() if result.stderr else '')
             exit(1)
     else:
         # Linux platform, use package manager for installation
-        result = subprocess.run(['sudo', 'apt-get', 'install', 'nmap'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = subprocess.run(['sudo', 'apt-get', '-y', 'install', 'nmap'])
 
         if result.returncode == 0:
             print(f"{Fore.RED}[{Fore.GREEN}KirmKit{Style.RESET_ALL}{Fore.RED}]{Style.RESET_ALL} Installation Successful!")
         else:
             print(f"[{Fore.RED}ERROR{Style.RESET_ALL}] KirmKit installation failed.")
-            print(result.stderr.decode())
             exit(1)
 
 # Function to clone GitHub repositories

@@ -25,6 +25,8 @@ pip install -r requirements.txt
 ```bash
 python Install.py
 ```
+Install.py downloads Nmap automatically on Windows with a silent installer and
+shows a progress bar during the download.
 Linux
 --------
 
