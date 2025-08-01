@@ -30,6 +30,7 @@ def download_with_progress(url: str, dest: str) -> None:
                 print(f"\rDownloading: [{bar}] {percent}%", end='', flush=True)
     print()
 
+
 # Function to display the KIRMKIT banner
 def display_banner():
     print(f"{Fore.GREEN}K   K  III  RRRR   M   M  K   K  III  TTTTT\nK  K    I   R   R  MM MM  K  K    I     T\nKKK     I   RRRR   M M M  KKK     I     T\nK  K    I   R  R   M   M  K  K    I     T\nK   K  III  R   RR M   M  K   K  III    T    http://github.com/kirm1/KirmKit.git\n================================================================================================================================{Style.RESET_ALL}")
