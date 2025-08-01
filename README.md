@@ -1,10 +1,3 @@
-# DISCONTINUED 
-
-
-
-
-
-
 # Kit
 
 A Tool kit I made (credit to DDoS-Ripper that i used in it)
