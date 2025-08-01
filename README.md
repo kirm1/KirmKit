@@ -11,10 +11,10 @@ git clone https://github.com/kirm1/KirmKit.git
 # Usage ⚡
 ----------
 
-Windows
-----------
+Windows (Command Prompt)
+-----------------------
 
-In PowerShell
+Open Command Prompt and run:
 ```bash
 cd KirmKit
 ```
@@ -23,7 +23,7 @@ cd KirmKit
 pip install -r requirements.txt
 ```
 ```bash
-python3 Install.py
+python Install.py
 ```
 Linux
 --------
